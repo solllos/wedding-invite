@@ -12,7 +12,7 @@ function App() {
       </div>
       <section>
         <img
-          src="./01.jpg"
+          src={`${import.meta.env.BASE_URL}01.jpg`}
           className={styles.welcomeImage}
           alt="경보와 소라 환영 사진"
         />

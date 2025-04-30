@@ -1,0 +1,105 @@
+@font-face {
+  font-display: swap;
+  font-family: "Poor Story";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/font.woff2") format("woff2");
+}
+
+:root {
+  font-family: "Poor Story", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #78aa8b;
+  --max-width: 668px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+article,
+header,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  height: 100dvh;
+  line-height: 1.5;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+  outline: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  -webkit-appearance: none;
+}
+
+strong {
+  color: var(--primary-color);
+}
+
+hr {
+  margin: 20px;
+  border: none;
+  border-top: 1px dashed var(--primary-color);
+}

@@ -1,6 +1,16 @@
+import { useLayoutEffect, useState } from "react";
 import styles from "./app.module.css";
+import "./index.css";
+
+const images = ["01.jpg", "02.jpg", "03.jpg"];
 
 function App() {
+  const [imagePath, setImagePath] = useState(images[0]);
+
+  useLayoutEffect(() => {
+    setImagePath(rendomImage());
+  }, []);
+
   return (
     <main>
       {/* <header>경보와 소라</header> */}
@@ -12,7 +22,7 @@ function App() {
       </div>
       <section>
         <img
-          src={`${import.meta.env.BASE_URL}01.jpg`}
+          src={`/wedding-invite/${imagePath}`}
           className={styles.welcomeImage}
           alt="경보와 소라 환영 사진"
         />
@@ -51,3 +61,8 @@ function App() {
 }
 
 export default App;
+
+function rendomImage() {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  return images[randomIndex];
+}

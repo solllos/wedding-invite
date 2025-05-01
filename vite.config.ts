@@ -19,7 +19,7 @@ export default defineConfig({
   environments: {
     client: {
       build: {
-        outDir: "dist/static",
+        outDir: "dist",
       },
     },
     ssr: {
@@ -58,7 +58,7 @@ export default defineConfig({
       },
       async configurePreviewServer(server) {
         const template = fs.readFileSync(
-          path.resolve(_dirname, "dist/static/index.html"),
+          path.resolve(_dirname, "dist/index.html"),
           "utf-8"
         );
         const { render } = await import(

@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
-import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+
+import { defineConfig, type PreviewServer, type ViteDevServer } from "vite";
 import react from "@vitejs/plugin-react";
 
 const _dirname = path.dirname(url.fileURLToPath(import.meta.url));
@@ -33,52 +35,61 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    tailwindcss(),
     {
       name: "ssr-middleware",
       configureServer(server) {
-        return () => {
-          server.middlewares.use(async (req, res, next) => {
-            const url = req.originalUrl ?? "/";
-            try {
-              const { render } = await server.ssrLoadModule(
-                "/src/entry-server.tsx"
-              );
-              const appHtml = render(url);
-              const template = await server.transformIndexHtml(
-                url,
-                fs.readFileSync(path.resolve(_dirname, "index.html"), "utf-8")
-              );
-              const html = template.replace(`<!--app-html-->`, appHtml);
-              res.setHeader("content-type", "text/html").end(html);
-            } catch (e) {
-              next(e);
-            }
-          });
-        };
+        return () => getConfigureServer(server);
       },
       async configurePreviewServer(server) {
-        const template = fs.readFileSync(
-          path.resolve(_dirname, "dist/index.html"),
-          "utf-8"
-        );
-        const { render } = await import(
-          url.pathToFileURL(
-            path.resolve(_dirname, "./dist/server/entry-server.js")
-          ).href
-        );
-        return () => {
-          server.middlewares.use(async (req, res, next) => {
-            const url = req.originalUrl ?? "/";
-            try {
-              const appHtml = render(url);
-              const html = template.replace(`<!--app-html-->`, appHtml);
-              res.setHeader("content-type", "text/html").end(html);
-            } catch (e) {
-              next(e);
-            }
-          });
-        };
+        return getConfigurePreviewServer(server);
       },
     },
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 });
+
+function getConfigureServer(server: ViteDevServer) {
+  return server.middlewares.use(async (req, res, next) => {
+    const url = req.originalUrl ?? "/";
+    try {
+      const { render } = await server.ssrLoadModule("/src/entry-server.tsx");
+      const appHtml = render(url);
+      const template = await server.transformIndexHtml(
+        url,
+        fs.readFileSync(path.resolve(_dirname, "index.html"), "utf-8")
+      );
+      const html = template.replace(`<!--app-html-->`, appHtml);
+      res.setHeader("content-type", "text/html").end(html);
+    } catch (e) {
+      next(e);
+    }
+  });
+}
+
+async function getConfigurePreviewServer(server: PreviewServer) {
+  const template = fs.readFileSync(
+    path.resolve(_dirname, "dist/index.html"),
+    "utf-8"
+  );
+  const { render } = await import(
+    url.pathToFileURL(path.resolve(_dirname, "./dist/server/entry-server.js"))
+      .href
+  );
+  return () => {
+    server.middlewares.use(async (req, res, next) => {
+      const url = req.originalUrl ?? "/";
+      try {
+        const appHtml = render(url);
+        const html = template.replace(`<!--app-html-->`, appHtml);
+        res.setHeader("content-type", "text/html").end(html);
+      } catch (e) {
+        next(e);
+      }
+    });
+  };
+}

@@ -1,7 +1,7 @@
-import { Welcome } from "./components/welcome";
+import { Welcome } from "./components/Welcome";
+import { Contact } from "./components/Contact";
 import styles from "./app.module.css";
 import "./index.css";
-import { Contact } from "./components/Contact";
 
 function App() {
   return (

@@ -11,15 +11,23 @@
   color: #888;
 }
 
-.call {
-  display: block;
-  margin: 30px auto;
-  padding: 10px;
-  border-radius: 4px;
-  background: rgba(120, 170, 139, 0.25);
-  cursor: pointer;
-
-  &::before {
-    content: "\f879";
+.contactIcons {
+  a {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    border-radius: 50%;
+    background: #f6f6f6;
+    font-size: 0;
+  }
+  a.smsIcon {
+    margin-left: 12px;
+    svg {
+      margin-top: 3px;
+    }
+  }
+  svg {
+    display: inline;
   }
 }

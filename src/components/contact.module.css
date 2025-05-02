@@ -1,0 +1,25 @@
+.contact {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 2;
+  white-space: pre-line;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.light {
+  color: #888;
+}
+
+.call {
+  display: block;
+  margin: 30px auto;
+  padding: 10px;
+  border-radius: 4px;
+  background: rgba(120, 170, 139, 0.25);
+  cursor: pointer;
+
+  &::before {
+    content: "\f879";
+  }
+}

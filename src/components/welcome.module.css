@@ -92,11 +92,11 @@
 
 .welcomeImage {
   width: 100%;
-  max-height: 100vh;
-  max-height: 100dvh;
+  max-height: 88vh;
+  max-height: 88dvh;
   margin: 0 auto;
   object-fit: cover;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
 @keyframes spin {

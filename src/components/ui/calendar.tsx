@@ -67,7 +67,7 @@ function Calendar({
           <ChevronRight className={cn("size-4", className)} {...props} />
         ),
         Caption: () => (
-          <div className="text-lg whitespace-pre-line">
+          <div className="text-xl whitespace-pre-line text-center">
             2025 . 07 . 20{`\n`}
             <span className="text-base text-primary">오전 11시</span>
           </div>

@@ -10,8 +10,8 @@ import styles from "./contact.module.css";
 import { Fragment } from "react/jsx-runtime";
 
 const CONTACT_LIST = [
-  { family: "신랑 아버지", name: "심재천", phone: "010-000-0000" },
-  { family: "신랑 어머니", name: "박효숙", phone: "010-000-0000" },
+  { family: "신랑 아버지", name: "심재천", phone: "010-8634-1960" },
+  { family: "신랑 어머니", name: "박효숙", phone: "010-2359-9960" },
   { family: "신부 아버지", name: "김봉상", phone: "010-3651-7531" },
   { family: "신부 어머니", name: "박수민", phone: "010-4228-5080" },
 ];
@@ -32,7 +32,7 @@ export function Contact() {
           </SheetTrigger>
         </section>
 
-        <SheetContent side="bottom" className="p-3">
+        <SheetContent side="bottom" className="p-3 rounded-t-2xl">
           <SheetHeader>
             <SheetTitle>축하를 전해주세요</SheetTitle>
             <div>
@@ -49,9 +49,7 @@ export function Contact() {
                       )}
                       <li className="flex justify-between items-center py-2">
                         <span className="text-lg">
-                          <span className={`text-base ${color}`}>
-                            {family}
-                          </span>{" "}
+                          <span className={`text-base ${color}`}>{family}</span>{" "}
                           &middot;
                           {name}
                         </span>

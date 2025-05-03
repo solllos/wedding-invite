@@ -2,6 +2,7 @@ import { Welcome } from "./components/Welcome";
 import { Contact } from "./components/Contact";
 import styles from "./app.module.css";
 import "./index.css";
+import { WeddingCalendar } from "./components/WeddingCalendar";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       </section>
       <Contact />
       <hr />
-      <section>달력넣기</section>
+      <WeddingCalendar />
       <hr />
       <section>지도넣기</section>
       <hr />

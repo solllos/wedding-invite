@@ -92,10 +92,12 @@
 
 .welcomeImage {
   width: 100%;
+  max-width: 668px;
   max-height: 88vh;
   max-height: 88dvh;
   margin: 0 auto;
   object-fit: cover;
+  aspect-ratio: 9/16;
   animation: fadeIn 2s ease-in-out;
 }
 

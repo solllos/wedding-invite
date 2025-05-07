@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 import { defineConfig, type PreviewServer, type ViteDevServer } from "vite";
 import react from "@vitejs/plugin-react";
+import { beasties } from "vite-plugin-beasties";
 
 const _dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -14,6 +15,7 @@ export default defineConfig({
     modules: {
       localsConvention: "camelCase",
     },
+    devSourcemap: true,
   },
   build: {
     cssTarget: "chrome61",
@@ -36,6 +38,14 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    beasties({
+      options: {
+        preload: "swap",
+        pruneSource: true,
+        inlineThreshold: 4000,
+      },
+      filter: (path) => path.endsWith(".html"),
+    }),
     {
       name: "ssr-middleware",
       configureServer(server) {

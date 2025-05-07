@@ -1,8 +1,8 @@
 import { Welcome } from "./components/Welcome";
 import { Contact } from "./components/Contact";
+import { WeddingCalendar } from "./components/WeddingCalendar";
 import styles from "./app.module.css";
 import "./index.css";
-import { WeddingCalendar } from "./components/WeddingCalendar";
 
 function App() {
   return (

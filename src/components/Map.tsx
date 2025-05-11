@@ -29,8 +29,9 @@ export function Map() {
   return (
     <section className="p-5">
       <h2 className="text-lg text-primary">오시는 길</h2>
-      <p className="mt-2 mb-5 whitespace-pre-line leading-8">
-        MJ컨벤션 5층 그랜드볼룸홀 {`\n`}경기 부천시 소사구 소사본동 65-7
+      <p className="mt-2 leading-8">MJ컨벤션 5층 그랜드볼룸홀</p>
+      <p className="text-sm mb-5">
+        경기 부천시 소사구 소사본동 65-7 (tel. 032-347-550)
       </p>
       <div id="map" className="w-full h-[400px] z-1 rounded-md"></div>
       <Dialog>
@@ -41,6 +42,17 @@ export function Map() {
           <img src="/wedding-invite/map_mj.webp" />
         </DialogContent>
       </Dialog>
+
+      <strong className="block mt-5">지하철</strong>
+      <p>(1호선 / 서해선) 소사역 1번 출구 건너편 좌측 방향</p>
+      <strong className="block mt-4">버스</strong>
+      <p>19, 83, 88, 53, 60-1</p>
+      <strong className="block mt-4">주차</strong>
+      <p className="whitespace-pre-line">
+        건물 주차장 이용 (2시간 무료)
+        {`\n`} - 대로변 주차타워 (총 4층)
+        {`\n`} - 건물 뒷 편 주차타워 (총 8층 - 웨딩홀과 연결된 다리가 있어 조금 더 편리합니다.)
+      </p>
     </section>
   );
 }

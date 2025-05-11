@@ -1,6 +1,7 @@
 import { Welcome } from "./components/Welcome";
 import { Contact } from "./components/Contact";
 import { WeddingCalendar } from "./components/WeddingCalendar";
+import { Map } from "./components/Map";
 import styles from "./app.module.css";
 import "./index.css";
 
@@ -23,7 +24,7 @@ function App() {
       <hr />
       <WeddingCalendar />
       <hr />
-      <section>지도넣기</section>
+      <Map />
       <hr />
       <section>갤러리</section>
       <hr />

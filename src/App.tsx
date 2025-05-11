@@ -2,6 +2,7 @@ import { Welcome } from "./components/Welcome";
 import { Contact } from "./components/Contact";
 import { WeddingCalendar } from "./components/WeddingCalendar";
 import { Map } from "./components/Map";
+import { Gallery } from "./components/Gallery";
 import styles from "./app.module.css";
 import "./index.css";
 
@@ -26,7 +27,7 @@ function App() {
       <hr />
       <Map />
       <hr />
-      <section>갤러리</section>
+      <Gallery />
       <hr />
       <section>마음 전하실 곳</section>
       <hr />

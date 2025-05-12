@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +13,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useState } from "react";
 
 export function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -35,23 +35,27 @@ export function Gallery() {
               />
             </DialogTrigger>
             <DialogContent className="pt-10 px-3">
-              <Carousel opts={{ startIndex: selectedIndex }}>
-                <CarouselContent>
-                  {Array.from({ length: 14 }, (_, j) => (
-                    <CarouselItem className="self-center" key={j}>
-                      <img
-                        src={`/wedding-invite/gallery/gallery_${j + 1}.jpg`}
-                      />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-1" />
-                <CarouselNext className="right-1" />
-              </Carousel>
+              <GalleryCarousel selectedIndex={selectedIndex} />
             </DialogContent>
           </Dialog>
         ))}
       </article>
     </section>
+  );
+}
+
+function GalleryCarousel({ selectedIndex }: { selectedIndex: number }) {
+  return (
+    <Carousel opts={{ startIndex: selectedIndex }}>
+      <CarouselContent>
+        {Array.from({ length: 14 }, (_, j) => (
+          <CarouselItem className="self-center" key={j}>
+            <img src={`/wedding-invite/gallery/gallery_${j + 1}.jpg`} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="left-1" />
+      <CarouselNext className="right-1" />
+    </Carousel>
   );
 }

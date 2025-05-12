@@ -40,7 +40,6 @@ export default defineConfig({
     tailwindcss(),
     beasties({
       options: {
-        preload: "swap",
         pruneSource: true,
         inlineThreshold: 4000,
       },

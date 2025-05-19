@@ -98,6 +98,11 @@
   object-fit: cover;
   aspect-ratio: 9/16;
   animation: fadeIn 2s ease-in-out;
+
+  @media (min-width: 480px) {
+    max-height: 88dvh;
+    max-height: 88vh;
+  }
 }
 
 @keyframes spin {

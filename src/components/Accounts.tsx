@@ -1,4 +1,4 @@
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import clipboard from "react-copy-to-clipboard";
 import { toast } from "sonner";
 
 import {
@@ -7,6 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+
+const { CopyToClipboard } = clipboard;
 
 const ACCOUNTS = {
   groom: [

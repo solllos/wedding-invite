@@ -9,7 +9,7 @@ import {
 export function Map() {
   useEffect(() => {
     const mapOptions = {
-      center: new naver.maps.LatLng(37.481761, 126.798485),
+      center: new naver.maps.LatLng(37.482761, 126.800085),
       zoom: 15,
       maxZoom: 20,
       zoomControl: true,
@@ -39,7 +39,10 @@ export function Map() {
         경기 부천시 소사구 소사본동 65-7{" "}
         <a href="tel:032-347-5500">(tel. 032-347-5500)</a>
       </p>
-      <div id="map" className="w-full h-[400px] z-1 rounded-md"></div>
+      <div
+        id="map"
+        className="w-full h-[300px] md:max-xl:h-[400px] z-1 rounded-md"
+      ></div>
       <Dialog>
         <DialogTrigger className="w-[100%] mt-5 py-4 border border-[#e2e2e2] rounded-md">
           약도 이미지로 보기

@@ -40,11 +40,18 @@ function App() {
         <ol className="break-keep">
           <li>
             <h3 className="text-primary text-base">01</h3>
-            <p>식사는 뷔페식입니다. 식장 (5층) 에서 한 층 아래 (4층) 에 연회장이 위치해있습니다.</p>
+            <p>
+              식사는 뷔페식입니다. 식장 (5층) 에서 한 층 아래 (4층) 에 연회장이
+              위치해있습니다.
+            </p>
           </li>
           <li>
             <h3 className="mt-1 text-primary text-base">02</h3>
-            <p>주차는 2시간 무료이고 이후 주차요금이 발생합니다.</p>
+            <p className="whitespace-pre-line">
+              주차는 2시간 무료이고 이후 30분당 2천원의 주차요금이 발생합니다. (번호 인식)
+              {`\n`}
+              예식장 뒷편 주차타워는 3, 6, 8층이 웨딩홀 연결통로가 있습니다.
+            </p>
           </li>
         </ol>
       </section>

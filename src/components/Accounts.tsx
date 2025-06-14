@@ -45,7 +45,7 @@ const ACCOUNTS = {
     {
       role: "신부 아버지",
       name: "김봉상",
-      account: "1002-283-6986367",
+      account: "1002-836-986367",
       bank: "우리은행",
       kakaopay: "https://qr.kakaopay.com/FdK0IAHJk",
     },

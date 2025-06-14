@@ -14,6 +14,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+const GALLERY_COUNT = 15;
+
 export function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -21,14 +23,12 @@ export function Gallery() {
     <section className="p-5">
       <h2 className="text-lg text-primary">갤러리</h2>
       <article className="grid grid-cols-3 sm:grid-cols-5 gap-3 mt-6">
-        {Array.from({ length: 14 }, (_, i) => (
+        {Array.from({ length: GALLERY_COUNT }, (_, i) => (
           <Dialog key={i}>
             <DialogTitle className="sr-only">결혼사진 {i + 1}</DialogTitle>
             <DialogTrigger>
               <img
-                src={`/wedding-invite/gallery/thumbnail/thumbnail_${
-                  i + 1
-                }.jpeg`}
+                src={`/wedding-invite/gallery/thumbnail/thumbnail_${i + 1}.jpg`}
                 alt={`경보와 소라 갤러리 ${i + 1}`}
                 className="w-[100%] h-auto object-cover rounded-md cursor-pointer hover:scale-105 transition-transform duration-200"
                 onClick={() => setSelectedIndex(i)}
@@ -48,7 +48,7 @@ function GalleryCarousel({ selectedIndex }: { selectedIndex: number }) {
   return (
     <Carousel opts={{ startIndex: selectedIndex }}>
       <CarouselContent>
-        {Array.from({ length: 14 }, (_, j) => (
+        {Array.from({ length: GALLERY_COUNT }, (_, j) => (
           <CarouselItem className="self-center" key={j}>
             <img src={`/wedding-invite/gallery/gallery_${j + 1}.jpg`} />
           </CarouselItem>
